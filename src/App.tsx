@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  ApolloClient,
+  InMemoryCache,
+  NormalizedCacheObject,
+  HttpLink,
+} from '@apollo/client';
+import { ApolloProvider } from '@apollo/react-hooks';
+import Index from './pages/Index';
+import { hot } from 'react-hot-loader';
+
+const cache = new InMemoryCache({
+  resultCaching: true,
+});
+const link = new HttpLink({
+  uri: 'https://ecs272-2020-f.herokuapp.com/',
+});
+
+const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
+  cache,
+  resolvers: {},
+  link,
+});
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <Index />
+    </ApolloProvider>
   );
-}
+};
 
-export default App;
+export default hot(module)(App);
