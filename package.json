@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@adobe/react-spectrum": "^3.6.0",
+    "@emotion/react": "^11.1.2",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.5.0",
@@ -15,9 +16,11 @@
     "react": "17.0.1",
     "react-app-rewire-hot-loader": "^2.0.1",
     "react-app-rewired": "^2.1.6",
+    "react-aria": "^3.2.0",
     "react-dom": "17.0.1",
     "react-hot-loader": "^4.13.0",
     "react-scripts": "4.0.1",
+    "react-stately": "^3.1.0",
     "react-use": "^15.3.4",
     "typescript": "4.1.2"
   },
